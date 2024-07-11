@@ -23,3 +23,19 @@ $max-content-width: {{ site.max_width }};
   "tabler-icons/tabler-icons-filled.scss",
   "tabler-icons/tabler-icons-outline.scss"
 ;
+
+.about-content {
+  position: relative;
+  z-index: 1; /* Ensure content is above the canvas */
+}
+
+/* Position the canvas absolutely */
+#spiders {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none; /* Ensure canvas doesn't block interactions */
+  z-index: -1; /* Ensure the canvas is behind other content */
+}

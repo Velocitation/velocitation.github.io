@@ -1,0 +1,110 @@
+<canvas id="spiders"></canvas>
+<script>
+  const canvas = document.getElementById('spiders');
+  const ctx = canvas.getContext('2d');
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+
+  const points = [];
+  const maxDistance = 200;
+  const fadeDistance = 100;
+
+  function createPoints() {
+    points.length = 0; // Clear points array before adding new points
+    for (let i = 0; i < 50; i++) {
+      const px = Math.random() * canvas.width;
+      const py = Math.random() * canvas.height;
+      const p = {
+        x: px,
+        y: py,
+        originX: px,
+        originY: py,
+        vx: (Math.random() - 0.5) * 1,
+        vy: (Math.random() - 0.5) * 1,
+        speed: 0.5 + Math.random() * 1,
+        circle: new Circle({ x: px, y: py }, 1 + Math.random() * 2, 'rgba(118,118,118,0.9)')
+      };
+      points.push(p);
+    }
+  }
+
+  function Circle(pos, rad, color) {
+    this.pos = pos;
+    this.radius = rad;
+    this.color = color;
+
+    this.draw = function(opacity) {
+      ctx.beginPath();
+      ctx.arc(this.pos.x, this.pos.y, this.radius, 0, 2 * Math.PI, false);
+      ctx.fillStyle = `rgba(118,118,118,${opacity})`;
+      ctx.fill();
+    };
+  }
+
+  function movePoint(p) {
+    p.x += p.vx * p.speed;
+    p.y += p.vy * p.speed;
+
+    // Ensure points stay within the max distance from their origin
+    if (getDistance(p, { x: p.originX, y: p.originY }) > maxDistance) {
+      p.vx = -p.vx;
+      p.vy = -p.vy;
+    }
+
+    // Random movement change
+    if (Math.random() < 0.01) {
+      p.vx = (Math.random() - 0.5) * 1;
+      p.vy = (Math.random() - 0.5) * 1;
+    }
+  }
+
+  function getOpacity(x, y) {
+    const distanceToEdge = Math.min(x, y, canvas.width - x, canvas.height - y);
+    if (distanceToEdge < fadeDistance) {
+      return distanceToEdge / fadeDistance;
+    }
+    return 1;
+  }
+
+  function drawLines() {
+    for (let i = 0; i < points.length; i++) {
+      for (let j = i + 1; j < points.length; j++) {
+        const dist = getDistance(points[i], points[j]);
+        if (dist < maxDistance) {
+          const opacity = Math.min(getOpacity(points[i].x, points[i].y), getOpacity(points[j].x, points[j].y)) * (1 - dist / maxDistance); // Fade based on distance and edge proximity
+          ctx.beginPath();
+          ctx.moveTo(points[i].x, points[i].y);
+          ctx.lineTo(points[j].x, points[j].y);
+          ctx.strokeStyle = `rgba(118,118,118,${opacity})`;
+          ctx.stroke();
+        }
+      }
+    }
+  }
+
+  function drawPoints() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    drawLines();
+    for (let i = 0; i < points.length; i++) {
+      const opacity = getOpacity(points[i].x, points[i].y);
+      points[i].circle.pos.x = points[i].x;
+      points[i].circle.pos.y = points[i].y;
+      points[i].circle.draw(opacity);
+    }
+  }
+
+  function animate() {
+    for (let i = 0; i < points.length; i++) {
+      movePoint(points[i]);
+    }
+    drawPoints();
+    requestAnimationFrame(animate);
+  }
+
+  function getDistance(p1, p2) {
+    return Math.sqrt(Math.pow(p2.x - p1.x, 2) + Math.pow(p2.y - p1.y, 2));
+  }
+
+  createPoints();
+  animate();
+</script>

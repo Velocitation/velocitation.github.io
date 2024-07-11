@@ -2,24 +2,26 @@
 layout: about
 title: about
 permalink: /
-subtitle: <a href='#'>Affiliations</a>. Address. Contacts. Moto. Etc.
+subtitle: Innovating at the intersection of Science and Data
 
 profile:
   align: right
-  image: prof_pic.jpg
-  image_circular: false # crops the image to make it circular
-  more_info: >
-    <p>555 your office number</p>
-    <p>123 your address street</p>
-    <p>Your City, State 12345</p>
+  image: me.png
+  image_circular: true # crops the image to make it circular
+  #more_info: >
+  #  <p>Richmond, VA 23220</p>
 
-news: true # includes a list of news items
-selected_papers: true # includes a list of papers marked as "selected={true}"
+news: false # includes a list of news items
+selected_papers: false # includes a list of papers marked as "selected={true}"
 social: true # includes social icons at the bottom of the page
 ---
 
-Write your biography here. Tell the world about yourself. Link to your favorite [subreddit](http://reddit.com). You can put a picture in, too. The code is already in, just name your picture `prof_pic.jpg` and put it in the `img/` folder.
+{% include spider.html %}
 
-Put your address / P.O. box / other info right below your picture. You can also disable any of these elements by editing `profile` property of the YAML header of your `_pages/about.md`. Edit `_bibliography/papers.bib` and Jekyll will render your [publications page](/al-folio/publications/) automatically.
+<hr>
+Hello! I'm a Senior Scientist with a unique blend of expertise in analytical chemistry and data science, currently pursuing a <a href='https://bulletin.vcu.edu/graduate/school-business/decision-analytics-programs/decision-analytics-mda/#text'>Master's in Decision Analytics</a> at <a href='https://www.vcu.edu/'>VCU</a>. My journey has taken me from bench science to data-driven decision making, where I've discovered the power of transforming scientific data into actionable insights.
 
-Link to your social media connections, too. This theme is set up to use [Font Awesome icons](https://fontawesome.com/) and [Academicons](https://jpswalsh.github.io/academicons/), like the ones below. Add your Facebook, Twitter, LinkedIn, Google Scholar, or just disable all of them.
+With a strong foundation in chemistry and growing expertise in data science, I bridge these fields to drive innovation in scientific research and beyond. My focus lies in developing efficient data reporting infrastructures, applying machine learning to analytical problems, and creating automated solutions that enhance accuracy and productivity.
+
+I invite you to explore my portfolio, where you'll find <a href="/projects/">projects</a> that demonstrate my commitment to solving complex problems at the intersection of chemistry, data science, and technology.
+<hr>

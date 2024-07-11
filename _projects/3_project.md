@@ -1,81 +1,50 @@
 ---
 layout: page
-title: project 3 with very long name
-description: a project that redirects to another website
-img: assets/img/7.jpg
-redirect: https://unsplash.com
+title: Multivendor Report Generation Software
+description: A sophisticated Visual Basic-based software for analyzing and reporting multi-analyte methods across various analytical platforms
+img: assets/img/sciex.jpg
 importance: 3
 category: work
+giscus_comments: false
 ---
 
-Every project has a beautiful feature showcase page.
-It's easy to include images in a flexible 3-column grid format.
-Make your photos 1/3, 2/3, or full width.
+## Overview
+This project involved the co-development of a standalone report generation software using Visual Basic. The software was designed to process and analyze data from 9 multi-analyte methods used in diagnostic settings for blood work, including insulin resistance assays, sterol analyses, reverse T3 tests, and estrogen assessments. It seamlessly integrated data from various analytical platforms, including Liquid Chromatography Mass Spectrometry (LC-MS) and Nuclear Magnetic Resonance (NMR) instrumentation from multiple vendors.
 
-To give your project a background in the portfolio page, just add the img tag to the front matter like so:
+## Key Features
+1. **Multivendor Data Integration**: Capable of reading and processing raw integrated data from various chromatographic data software, ensuring compatibility across different analytical platforms.
+2. **Multi-Analyte Method Support**: Handled data from 9 different multi-analyte methods, providing a comprehensive solution for a wide range of diagnostic tests.
+3. **Internal Standard Evaluation**: Implemented sophisticated algorithms to evaluate internal standards, automatically detecting and flagging anomalies in the data.
+4. **Automated Quality Control**: Included robust flagging capabilities for run failures, such as detecting possible carryover by comparing reagent blank area counts to the lowest calibration standard.
+5. **PDF Report Generation**: Automatically generated detailed PDF reports, presenting complex analytical data in a clear, standardized format, allowing for easy storage and retrieval of digital records for audits.
+6. **Data Interpretation Assistance**: Streamlined the data interpretation process by highlighting key metrics and flagging results that required attention.
+7. **Cross-Platform Compatibility**: Designed to work with data from multiple Shimadzu liquid chromatograph systems coupled with AB Sciex mass spectrometry detection as well as NMR instrumentation, providing a unified reporting solution across different analytical techniques.
+8. **Digital Record Storage**: Implemented a system for storing digital records, making them easily accessible for audits and future reference.
 
-    ---
-    layout: page
-    title: project
-    description: a project with a background image
-    img: /assets/img/12.jpg
-    ---
+## Technical Details
+While specific code cannot be shared due to confidentiality, the software leveraged Visual Basic's powerful capabilities for data processing, statistical analysis, and report generation. Key technical aspects included:
 
-<div class="row">
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/1.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/3.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/5.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
-<div class="caption">
-    Caption photos easily. On the left, a road goes through a tunnel. Middle, leaves artistically fall in a hipster photoshoot. Right, in another hipster photoshoot, a lumberjack grasps a handful of pine needles.
-</div>
-<div class="row">
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/5.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
-<div class="caption">
-    This image can also have a caption. It's like magic.
-</div>
+- **Data Parsing**: Utilized advanced algorithms to extract and interpret raw data from various chromatographic data formats.
+- **Statistical Computations**: Implemented complex statistical calculations for data analysis and quality control.
+- **Report Template Engine**: Employed a flexible template system for generating customized PDF reports.
+- **Database Integration**: Interfaced with laboratory information management systems (LIMS) for seamless data flow.
+- **Digital Record Management**: Developed a robust system for storing and retrieving digital records, ensuring data integrity and easy access for audits.
 
-You can also put regular text between your rows of images.
-Say you wanted to write a little bit about your project before you posted the rest of the images.
-You describe how you toiled, sweated, _bled_ for your project, and then... you reveal its glory in the next row of images.
+## Impact and Outcomes
+The development of this report generation software significantly enhanced the laboratory's analytical capabilities:
 
-<div class="row justify-content-sm-center">
-    <div class="col-sm-8 mt-3 mt-md-0">
-        {% include figure.liquid path="assets/img/6.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-    <div class="col-sm-4 mt-3 mt-md-0">
-        {% include figure.liquid path="assets/img/11.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
-<div class="caption">
-    You can also have artistically styled 2/3 + 1/3 images, like these.
-</div>
+1. **Efficiency**: Drastically reduced the time required for data processing and report generation across multiple analytical platforms.
+2. **Accuracy**: Minimized the risk of human error in data interpretation and reporting.
+3. **Standardization**: Ensured consistent reporting formats and quality control measures across different analytical methods.
+4. **Scalability**: Designed to easily incorporate new analytical methods and instrumentation as the laboratory's capabilities expanded.
+5. **Audit Readiness**: Improved the laboratory's ability to respond to audits by providing quick access to well-organized digital records.
 
-The code is simple.
-Just wrap your images with `<div class="col-sm">` and place them inside `<div class="row">` (read more about the <a href="https://getbootstrap.com/docs/4.4/layout/grid/">Bootstrap Grid</a> system).
-To make images responsive, add `img-fluid` class to each; for rounded corners and shadows use `rounded` and `z-depth-1` classes.
-Here's the code for the last row of images above:
+## Challenges and Lessons Learned
+- **Multivendor Integration**: Overcoming the challenges of integrating data from various vendors and instrumentation types required deep understanding of different data formats and analytical techniques.
+- **Complex Quality Control**: Developing robust algorithms for internal standard evaluation and quality control across multiple methods demanded extensive collaboration with subject matter experts.
+- **User-Friendly Design**: Balancing the need for comprehensive data analysis with a user-friendly interface required iterative design and frequent user feedback.
 
-{% raw %}
+## Conclusion
+This project showcased the ability to develop complex, multivendor software solutions that significantly improve laboratory efficiency and data quality. It demonstrated skills in data integration, statistical analysis, and creating user-friendly interfaces for specialized scientific applications in a diagnostic setting. The addition of digital record storage and easy audit access further enhanced the software's value to the laboratory operations.
 
-```html
-<div class="row justify-content-sm-center">
-  <div class="col-sm-8 mt-3 mt-md-0">
-    {% include figure.liquid path="assets/img/6.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-  </div>
-  <div class="col-sm-4 mt-3 mt-md-0">
-    {% include figure.liquid path="assets/img/11.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-  </div>
-</div>
-```
-
-{% endraw %}
+While future improvements are not possible due to the company's closure, the project serves as a testament to the power of custom software solutions in advancing analytical capabilities in diagnostic laboratories.

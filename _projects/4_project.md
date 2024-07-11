@@ -1,80 +1,115 @@
 ---
 layout: page
-title: project 4
-description: another without an image
-img:
-importance: 3
+title: Falling Sand Simulation
+description: An interactive particle simulation showcasing physics and user interaction
+img: assets/img/fullsand.jpg
+importance: 4
 category: fun
+giscus_comments: false
 ---
 
-Every project has a beautiful feature showcase page.
-It's easy to include images in a flexible 3-column grid format.
-Make your photos 1/3, 2/3, or full width.
+## Overview
 
-To give your project a background in the portfolio page, just add the img tag to the front matter like so:
+This project implements an engaging sand particle simulation using Java and Swing for the graphical user interface. It demonstrates fundamental concepts in physics simulation, user interaction, and visual programming.
 
-    ---
-    layout: page
-    title: project
-    description: a project with a background image
-    img: /assets/img/12.jpg
-    ---
-
-<div class="row">
+<div class="row align-items-center">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/1.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
+        {% include figure.liquid loading="eager" path="assets/img/fallingsand.jpg" title="Sand simulation in action" class="img-fluid rounded z-depth-1" %}
     </div>
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/3.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/5.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
+        {% include figure.liquid loading="eager" path="assets/img/sandsim.jpg" title="Particle stacking behavior" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 <div class="caption">
-    Caption photos easily. On the left, a road goes through a tunnel. Middle, leaves artistically fall in a hipster photoshoot. Right, in another hipster photoshoot, a lumberjack grasps a handful of pine needles.
-</div>
-<div class="row">
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/5.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
-<div class="caption">
-    This image can also have a caption. It's like magic.
+    Left: The simulation in action, showing particles falling. Right: Dynamic color variation of particles as they're added.
 </div>
 
-You can also put regular text between your rows of images.
-Say you wanted to write a little bit about your project before you posted the rest of the images.
-You describe how you toiled, sweated, _bled_ for your project, and then... you reveal its glory in the next row of images.
+## Features
 
-<div class="row justify-content-sm-center">
-    <div class="col-sm-8 mt-3 mt-md-0">
-        {% include figure.liquid path="assets/img/6.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-    <div class="col-sm-4 mt-3 mt-md-0">
-        {% include figure.liquid path="assets/img/11.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
-<div class="caption">
-    You can also have artistically styled 2/3 + 1/3 images, like these.
-</div>
+1. **Interactive Particle Creation**: Users can add sand particles to the simulation by clicking or dragging the mouse across the panel, providing an intuitive and engaging experience.
 
-The code is simple.
-Just wrap your images with `<div class="col-sm">` and place them inside `<div class="row">` (read more about the <a href="https://getbootstrap.com/docs/4.4/layout/grid/">Bootstrap Grid</a> system).
-To make images responsive, add `img-fluid` class to each; for rounded corners and shadows use `rounded` and `z-depth-1` classes.
-Here's the code for the last row of images above:
+2. **Gravity Simulation**: The project implements a basic physics engine, simulating gravity to animate the sand particles. This results in realistic falling and stacking behaviors.
 
-{% raw %}
+3. **Dynamic Color Variation**: As new particles are added to the simulation, their colors shift along the hue spectrum, creating a visually appealing and dynamic environment.
 
-```html
-<div class="row justify-content-sm-center">
-  <div class="col-sm-8 mt-3 mt-md-0">
-    {% include figure.liquid path="assets/img/6.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-  </div>
-  <div class="col-sm-4 mt-3 mt-md-0">
-    {% include figure.liquid path="assets/img/11.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-  </div>
-</div>
+4. **Optimized Performance**: The simulation uses efficient data structures and algorithms to handle a large number of particles smoothly.
+
+## Technical Details
+
+The simulation is built on a grid system, where each cell can potentially contain a sand particle. The core of the simulation logic includes:
+
+- **Particle Movement**: Particles attempt to move downwards due to simulated gravity. If the space below is occupied, they try to move diagonally down.
+- **Velocity and Gravity**: Each particle has an associated velocity influenced by gravity, affecting its movement pattern.
+- **Collision Detection**: The system checks for occupied cells to determine valid particle movements.
+
+Here's a snippet of the core update logic with detailed comments:
+
+```java
+private void update() {
+    // Initialize new grids for the next state
+    int[][] nextGrid = new int[cols][rows];
+    float[][] nextVelocityGrid = new float[cols][rows];
+
+    // Iterate through each cell in the grid
+    for (int i = 0; i < cols; i++) {
+        for (int j = 0; j < rows; j++) {
+            int state = grid[i][j];
+            if (state > 0) {  // If the cell contains a particle
+                float velocity = velocityGrid[i][j];
+                boolean moved = false;
+
+                // Check if the cell below is empty
+                if (j < rows - 1 && grid[i][j + 1] == 0) {
+                    // Move particle down
+                    nextGrid[i][j + 1] = state;
+                    nextVelocityGrid[i][j + 1] = velocity + gravity;
+                    moved = true;
+                } else {
+                    // If can't move straight down, try diagonal movements
+                    List<Integer> directions = Arrays.asList(1, -1);
+                    Collections.shuffle(directions);  // Randomize direction
+                    for (int dir : directions) {
+                        int nextCol = i + dir;
+                        // Check if diagonal move is possible
+                        if (withinCols(nextCol) && j < rows - 1 && grid[nextCol][j + 1] == 0) {
+                            // Move particle diagonally
+                            nextGrid[nextCol][j + 1] = state;
+                            nextVelocityGrid[nextCol][j + 1] = velocity + gravity;
+                            moved = true;
+                            break;
+                        }
+                    }
+                }
+
+                // If particle couldn't move, keep it in place
+                if (!moved) {
+                    nextGrid[i][j] = state;
+                    nextVelocityGrid[i][j] = 0;  // Reset velocity for stationary particles
+                }
+            }
+        }
+    }
+
+    // Update the main grids with the new state
+    grid = nextGrid;
+    velocityGrid = nextVelocityGrid;
+}
 ```
 
-{% endraw %}
+This method is called repeatedly to update the state of each particle in the simulation, handling movement, velocity changes, and collisions. The use of separate grids for the next state ensures that all particles are updated based on the same initial conditions, preventing cascading updates within a single frame.
+
+## Reflections and Future Improvements
+
+Developing this sand simulation was an exciting journey into particle physics and interactive graphics programming. Some key learnings and potential future enhancements include:
+
+1. **Performance Optimization**: While the current implementation performs well, there's room for optimization using spatial partitioning techniques like quadtrees to handle even more particles.
+
+2. **Enhanced Physics**: Introducing more complex physics such as fluid dynamics could make the simulation more realistic and versatile.
+
+3. **User Controls**: Adding UI elements to allow users to adjust gravity, particle size, or introduce obstacles could greatly enhance interactivity.
+
+4. **Multi-threading**: Implementing multi-threaded updates could significantly boost performance on multi-core systems.
+
+This project not only served as a fun coding exercise but also deepened my understanding of simulation techniques, real-time graphics, and user interaction in Java. It showcases my ability to combine theoretical concepts with practical implementation, resulting in an engaging and educational tool.
+
+Feel free to check out the [full source code on GitHub](https://github.com/velocitation/SandSim) and try the simulation yourself!

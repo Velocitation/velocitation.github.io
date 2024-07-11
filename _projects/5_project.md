@@ -1,80 +1,79 @@
 ---
 layout: page
-title: project 5
-description: a project with a background image
-img: assets/img/1.jpg
-importance: 3
+title: ePortfolio with Custom Spider Background
+description: Creating a personalized ePortfolio using Jekyll and al-folio template, featuring an interactive spider web background
+img:
+importance: 5
 category: fun
+giscus_comments: false
 ---
 
-Every project has a beautiful feature showcase page.
-It's easy to include images in a flexible 3-column grid format.
-Make your photos 1/3, 2/3, or full width.
+## Project Overview
 
-To give your project a background in the portfolio page, just add the img tag to the front matter like so:
+This project showcases the creation of my personal ePortfolio using the al-folio template in Jekyll, with a particular focus on the customization of an interactive spider web background. The goal was to create a unique and engaging online presence that reflects both my professional skills and creative interests.
 
-    ---
-    layout: page
-    title: project
-    description: a project with a background image
-    img: /assets/img/12.jpg
-    ---
+## Key Features
 
-<div class="row">
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/1.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/3.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/5.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
-<div class="caption">
-    Caption photos easily. On the left, a road goes through a tunnel. Middle, leaves artistically fall in a hipster photoshoot. Right, in another hipster photoshoot, a lumberjack grasps a handful of pine needles.
-</div>
-<div class="row">
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/5.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
-<div class="caption">
-    This image can also have a caption. It's like magic.
-</div>
+1. **Jekyll-based Portfolio**: Leveraged the power of Jekyll static site generator for efficient content management.
+2. **al-folio Template**: Utilized the al-folio template as a foundation, providing a clean and academic-oriented design.
+3. **Custom Spider Web Background**: Implemented an interactive JavaScript animation to create a distinctive visual element.
+4. **Responsive Design**: Ensured the portfolio and background animation are fully responsive across various devices.
 
-You can also put regular text between your rows of images.
-Say you wanted to write a little bit about your project before you posted the rest of the images.
-You describe how you toiled, sweated, _bled_ for your project, and then... you reveal its glory in the next row of images.
+## The Spider Web Background
 
-<div class="row justify-content-sm-center">
-    <div class="col-sm-8 mt-3 mt-md-0">
-        {% include figure.liquid path="assets/img/6.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-    <div class="col-sm-4 mt-3 mt-md-0">
-        {% include figure.liquid path="assets/img/11.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
-<div class="caption">
-    You can also have artistically styled 2/3 + 1/3 images, like these.
-</div>
+The centerpiece of this project is the custom spider web background, created using JavaScript and HTML5 Canvas. This interactive element adds depth and interest to the portfolio, creating a unique user experience.
 
-The code is simple.
-Just wrap your images with `<div class="col-sm">` and place them inside `<div class="row">` (read more about the <a href="https://getbootstrap.com/docs/4.4/layout/grid/">Bootstrap Grid</a> system).
-To make images responsive, add `img-fluid` class to each; for rounded corners and shadows use `rounded` and `z-depth-1` classes.
-Here's the code for the last row of images above:
+### Key Aspects of the Spider Web Animation:
 
-{% raw %}
+- **Dynamic Point Generation**: Creates a set of points that move organically across the canvas.
+- **Inter-point Connections**: Draws lines between points when they come within a certain distance of each other.
+- **Edge Fading**: Implements a fading effect near the edges of the screen for a polished look.
+- **Responsive Behavior**: Adapts to different screen sizes and resolutions.
 
-```html
-<div class="row justify-content-sm-center">
-  <div class="col-sm-8 mt-3 mt-md-0">
-    {% include figure.liquid path="assets/img/6.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-  </div>
-  <div class="col-sm-4 mt-3 mt-md-0">
-    {% include figure.liquid path="assets/img/11.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-  </div>
-</div>
+Here's a simplified version of the core animation logic:
+
+```javascript
+function animate() {
+  for (let i = 0; i < points.length; i++) {
+    movePoint(points[i]);
+  }
+  drawPoints();
+  requestAnimationFrame(animate);
+}
+
+function drawPoints() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  drawLines();
+  for (let i = 0; i < points.length; i++) {
+    const opacity = getOpacity(points[i].x, points[i].y);
+    points[i].circle.pos.x = points[i].x;
+    points[i].circle.pos.y = points[i].y;
+    points[i].circle.draw(opacity);
+  }
+}
 ```
 
-{% endraw %}
+## Challenges and Learning
+
+1. **Jekyll Learning Curve**: Familiarizing myself with Jekyll's structure and Liquid templating language.
+2. **JavaScript Animation Optimization**: Ensuring smooth performance of the spider web animation across different devices.
+3. **CSS Customization**: Adapting the al-folio template to incorporate the custom background seamlessly.
+
+## Reflections
+
+Creating this ePortfolio was both challenging and rewarding. The project allowed me to showcase my web development skills while also expressing my creativity through the custom animation. The spider web background, in particular, became a talking point and added a memorable aspect to my online presence.
+
+## Future Improvements
+
+- Implement color themes for the spider web animation
+- Add interactive elements that respond to user input
+- Optimize the animation further for improved performance on mobile devices
+
+## References and Resources
+
+1. [Jekyll Documentation](https://jekyllrb.com/docs/)
+2. [al-folio Template](https://github.com/alshedivat/al-folio)
+3. [HTML5 Canvas Tutorial](https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial)
+4. [JavaScript Animation Techniques](https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame)
+
+This project exemplifies the intersection of technical skill and creative design, resulting in a unique and engaging online portfolio.

@@ -1,81 +1,93 @@
 ---
 layout: page
-title: project 2
-description: a project with a background image and giscus comments
-img: assets/img/3.jpg
+title: Data Reporting Infrastructure Development
+description: A robust tool for summarizing and analyzing scientific data for regulatory reporting
+img: assets/img/dart.png
 importance: 2
 category: work
-giscus_comments: true
+giscus_comments: false
 ---
 
-Every project has a beautiful feature showcase page.
-It's easy to include images in a flexible 3-column grid format.
-Make your photos 1/3, 2/3, or full width.
+## Overview
 
-To give your project a background in the portfolio page, just add the img tag to the front matter like so:
+This project involves the development of a sophisticated data reporting infrastructure using Visual Basic. The tool is designed to ingest, process, and summarize both external analytical data reports from various laboratories and internal reports. Its primary function is to compile individual replicate measurements and generate comprehensive statistical reports, crucial for regulatory compliance in scientific research.
 
-    ---
-    layout: page
-    title: project
-    description: a project with a background image
-    img: /assets/img/12.jpg
-    ---
-
-<div class="row">
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/1.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/3.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/5.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
+<div class="row justify-content-center">
+    <div class="col-sm-8 mt-3 mt-md-0 d-flex justify-content-center">
+        {% include figure.liquid loading="eager" path="assets/img/dartdiag.jpg" title="Levy-Jennings plot" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 <div class="caption">
-    Caption photos easily. On the left, a road goes through a tunnel. Middle, leaves artistically fall in a hipster photoshoot. Right, in another hipster photoshoot, a lumberjack grasps a handful of pine needles.
-</div>
-<div class="row">
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/5.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
-<div class="caption">
-    This image can also have a caption. It's like magic.
+    Left: A high-level data flow diagram of the reporting infrastructure. Right: A sanitized sample of the tool's report output.
 </div>
 
-You can also put regular text between your rows of images.
-Say you wanted to write a little bit about your project before you posted the rest of the images.
-You describe how you toiled, sweated, _bled_ for your project, and then... you reveal its glory in the next row of images.
+## Key Features
 
-<div class="row justify-content-sm-center">
-    <div class="col-sm-8 mt-3 mt-md-0">
-        {% include figure.liquid path="assets/img/6.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-    <div class="col-sm-4 mt-3 mt-md-0">
-        {% include figure.liquid path="assets/img/11.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
-<div class="caption">
-    You can also have artistically styled 2/3 + 1/3 images, like these.
-</div>
+1. **Data Ingestion and Integration**: The tool seamlessly integrates data from multiple sources, including external laboratory reports and internal datasets, ensuring a comprehensive analysis.
 
-The code is simple.
-Just wrap your images with `<div class="col-sm">` and place them inside `<div class="row">` (read more about the <a href="https://getbootstrap.com/docs/4.4/layout/grid/">Bootstrap Grid</a> system).
-To make images responsive, add `img-fluid` class to each; for rounded corners and shadows use `rounded` and `z-depth-1` classes.
-Here's the code for the last row of images above:
+2. **Automated Data Transposition**: Implements sophisticated algorithms to automatically transpose data into the required format for analysis and reporting.
 
-{% raw %}
+3. **Statistical Analysis**: Performs complex statistical calculations, including averages, standard deviations, and determinations on a per nicotine basis.
 
-```html
-<div class="row justify-content-sm-center">
-  <div class="col-sm-8 mt-3 mt-md-0">
-    {% include figure.liquid path="assets/img/6.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-  </div>
-  <div class="col-sm-4 mt-3 mt-md-0">
-    {% include figure.liquid path="assets/img/11.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-  </div>
-</div>
+4. **Comparative Analysis**: Calculates percentage reductions compared to reference products, providing crucial insights for regulatory reporting.
+
+5. **Regulatory Compliance**: Incorporates specific rounding rules and Limit of Quantitation (LOQ) evaluations to ensure compliance with regulatory standards.
+
+6. **Report Generation**: Automatically generates detailed summary reports, significantly reducing manual effort and potential for human error.
+
+## Technical Details
+
+While the specific code cannot be shared due to confidentiality constraints, the tool leverages Visual Basic's robust capabilities for data manipulation and user interface design. Key technical aspects include:
+
+- **Data Parsing**: Utilizes advanced string manipulation and regular expressions to extract relevant data from various report formats.
+- **Array Manipulation**: Employs multi-dimensional arrays to efficiently store and process large datasets.
+- **Statistical Functions**: Implements custom functions for complex statistical calculations, ensuring accuracy and consistency.
+- **User Interface**: Features an intuitive interface for data import, processing control, and report generation.
+
+Here's a conceptual snippet that illustrates the tool's approach to data processing:
+
+```vb
+Sub ProcessData(inputData As Variant)
+    Dim processedData As New Collection
+    
+    ' Iterate through input data
+    For Each dataPoint In inputData
+        ' Apply LOQ evaluation
+        If dataPoint < LOQ Then
+            dataPoint = LOQ / 2
+        End If
+        
+        ' Apply rounding rules
+        dataPoint = Round(dataPoint, 2)
+        
+        ' Store processed data point
+        processedData.Add dataPoint
+    Next dataPoint
+    
+    ' Perform statistical analysis
+    averageValue = CalculateAverage(processedData)
+    standardDeviation = CalculateStandardDeviation(processedData)
+    
+    ' Generate report
+    GenerateReport averageValue, standardDeviation
+End Sub
 ```
 
-{% endraw %}
+This conceptual code demonstrates the general approach to data processing, including LOQ evaluation, rounding, and statistical analysis.
+
+## Impact and Future Directions
+
+The development of this data reporting infrastructure has significantly streamlined the process of preparing scientific data for regulatory reporting. Key impacts include:
+
+1. **Efficiency**: Drastically reduced the time required for data compilation and report generation.
+2. **Accuracy**: Minimized the risk of human error in data transposition and calculations.
+3. **Consistency**: Ensured uniform application of statistical methods and regulatory standards across all reports.
+4. **Scalability**: Designed to handle increasing volumes of data as research expands.
+
+Future enhancements could include:
+
+1. **Machine Learning Integration**: Implementing predictive analytics to forecast trends in scientific measurements.
+2. **Cloud Integration**: Developing a cloud-based version for improved accessibility and real-time collaboration.
+3. **Automated Data Retrieval**: Integrating direct connections to laboratory instruments for real-time data ingestion.
+
+This project showcases my ability to develop complex, regulation-compliant software solutions that bridge the gap between raw scientific data and actionable regulatory reports. It demonstrates my skills in data processing, statistical analysis, and creating user-friendly interfaces for specialized scientific applications.
