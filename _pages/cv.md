@@ -5,7 +5,7 @@ title: cv
 nav: true
 nav_order: 1
 cv_pdf: example_pdf.pdf
-description: This is a description of the page. You can modify it in '_pages/cv.md'. You can also change or remove the top pdf download button.
+description: Senior Scientist with expertise in analytical chemistry and data science, currently pursuing a Master’s in Decision Analytics. Passionate about transforming scientific data into actionable insights to drive innovation.
 toc:
   sidebar: left
 ---
