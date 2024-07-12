@@ -1,4 +1,4 @@
 User-agent: *
 Disallow:
 
-Sitemap: https://www.kylewpfeiffer.com/sitemap.xml
+Sitemap: https://www.kylepfeiffer.com/sitemap.xml
