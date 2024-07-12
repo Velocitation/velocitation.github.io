@@ -29,10 +29,11 @@ This project involves the development of a sophisticated control charting tool u
 
 3. **Advanced Statistical Process Control**: Implements multiple Westgard rules for robust quality control, including:
 
-   - 1-3s: One result exceeding 3 standard deviations
-   - 2-2s: Two consecutive results exceeding 2 standard deviations
-   - R-4s: Range of two consecutive results exceeding 4 standard deviations
-   - 8x: Eight consecutive results on the same side of the mean
+   - **1-3s**: One result exceeding 3 standard deviations
+   - **2-2s**: Two consecutive results exceeding 2 standard deviations
+   - **R-4s**: Range of two consecutive results exceeding 4 standard deviations
+   - **8x**: Eight consecutive results on the same side of the mean
+     <br /><br />
 
 4. **Immediate Visual Feedback**: Utilizes color-coded triggers for easy interpretation of control status, allowing quick identification of out-of-control scenarios.
 

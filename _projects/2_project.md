@@ -18,7 +18,7 @@ This project involves the development of a sophisticated data reporting infrastr
     </div>
 </div>
 <div class="caption">
-    Left: A high-level data flow diagram of the reporting infrastructure. Right: A sanitized sample of the tool's report output.
+    A high-level data flow diagram of the reporting infrastructure.
 </div>
 
 ## Key Features
