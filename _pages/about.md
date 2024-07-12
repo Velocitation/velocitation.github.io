@@ -24,4 +24,5 @@ Hello! I'm a Senior Scientist with a unique blend of expertise in analytical che
 With a strong foundation in chemistry and growing expertise in data science, I bridge these fields to drive innovation in scientific research and beyond. My focus lies in developing efficient data reporting infrastructures, applying machine learning to analytical problems, and creating automated solutions that enhance accuracy and productivity.
 
 I invite you to explore my portfolio, where you'll find <a href="/projects/">projects</a> that demonstrate my commitment to solving complex problems at the intersection of chemistry, data science, and technology.
+
 <hr>

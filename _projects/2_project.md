@@ -49,25 +49,25 @@ Here's a conceptual snippet that illustrates the tool's approach to data process
 ```vb
 Sub ProcessData(inputData As Variant)
     Dim processedData As New Collection
-    
+
     ' Iterate through input data
     For Each dataPoint In inputData
         ' Apply LOQ evaluation
         If dataPoint < LOQ Then
             dataPoint = LOQ / 2
         End If
-        
+
         ' Apply rounding rules
         dataPoint = Round(dataPoint, 2)
-        
+
         ' Store processed data point
         processedData.Add dataPoint
     Next dataPoint
-    
+
     ' Perform statistical analysis
     averageValue = CalculateAverage(processedData)
     standardDeviation = CalculateStandardDeviation(processedData)
-    
+
     ' Generate report
     GenerateReport averageValue, standardDeviation
 End Sub

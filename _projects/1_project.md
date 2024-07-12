@@ -28,6 +28,7 @@ This project involves the development of a sophisticated control charting tool u
 2. **Automated Control Charting**: Automatically generates and updates control charts, significantly reducing manual effort and potential for human error.
 
 3. **Advanced Statistical Process Control**: Implements multiple Westgard rules for robust quality control, including:
+
    - 1-3s: One result exceeding 3 standard deviations
    - 2-2s: Two consecutive results exceeding 2 standard deviations
    - R-4s: Range of two consecutive results exceeding 4 standard deviations
@@ -53,7 +54,7 @@ While specific code cannot be shared due to confidentiality, the tool leverages 
 Here's a concise code snippet illustrating the approach to evaluating the 1:3s Westgard rule for control charting in VBA:
 
 ```vba
-If Not bar.Cells(lastRowB + 1, colXb + 1).Value = "" Or lastRowB = 1 Then  
+If Not bar.Cells(lastRowB + 1, colXb + 1).Value = "" Or lastRowB = 1 Then
     ' Check if new limits are in use, update lastRowB accordingly
     lastRowB = lastRowB + 1
 End If
@@ -63,7 +64,7 @@ lcl = bar.Cells(lastRowB, colXb + 7).Value  ' Current LCL
 
 ' Iterate through data cells to apply 1:3s rule
 For Each dataCell In ent.Range(ent.Cells(row, 1), ent.Cells(lastRowD, 1))
-    If dataCell.Value = "" Then    
+    If dataCell.Value = "" Then
         Set avgCell = ent.Cells(dataCell.Row, posAvg.Column)
         batchValue = ent.Cells(dataCell.Row, posBatch.Column).Value
 
@@ -79,7 +80,7 @@ For Each dataCell In ent.Range(ent.Cells(row, 1), ent.Cells(lastRowD, 1))
 
         ' Check replicate values within the row
         For Each repCell In ent.Range(ent.Cells(dataCell.Row, 3), ent.Cells(dataCell.Row, posAvg.Column - 1))
-            If repCell.Value <> "" And InStr(1, repCell.Value, "*") = 0 Then   
+            If repCell.Value <> "" And InStr(1, repCell.Value, "*") = 0 Then
                 If repCell.Value < lcl Or repCell.Value > ucl Then
                     repCell.Font.Color = vbRed
                     If (avgCell.Value > lcl And avgCell.Value < ucl) Then

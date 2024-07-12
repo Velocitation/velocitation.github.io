@@ -48,7 +48,12 @@
       "startDate": "2019-06-01",
       "endDate": "2021-04-01",
       "summary": "Supervised laboratory personnel, ensuring compliance with regulatory requirements while maintaining quality control practices. Developed a quality control tool for generating control charts for over 70 methods, enhancing data accuracy and integrity.",
-      "highlights": ["Supervised multiple laboratory platforms", "Data review and analysis", "Quality control tool development ", "Metrics monitoring"]
+      "highlights": [
+        "Supervised multiple laboratory platforms",
+        "Data review and analysis",
+        "Quality control tool development ",
+        "Metrics monitoring"
+      ]
     },
     {
       "name": "True Health Diagnostics (formerly Health Diagnostic Laboratory)",
@@ -82,7 +87,10 @@
       "startDate": "2012-01-01",
       "endDate": "2013-05-01",
       "summary": "Assisted students in understanding fundamental chemistry principles and facilitated group work and communication among peers in the classroom.",
-      "highlights": ["Guided students through basic chemistry concepts and collaborative group activities.", "Enhanced student comprehension by providing targeted support and fostering peer discussions."]
+      "highlights": [
+        "Guided students through basic chemistry concepts and collaborative group activities.",
+        "Enhanced student comprehension by providing targeted support and fostering peer discussions."
+      ]
     }
   ],
   "awards": [
@@ -142,37 +150,19 @@
       "name": "Programming Languages",
       "level": "Proficient",
       "icon": "fa-solid fa-code",
-      "keywords": [
-        "Visual Basic",
-        "SQL",
-        "Python",
-        "R",
-        "HTML",
-        "CSS"
-      ]
+      "keywords": ["Visual Basic", "SQL", "Python", "R", "HTML", "CSS"]
     },
     {
       "name": "Chromatography Techniques",
       "level": "Expert",
       "icon": "fa-solid fa-vial",
-      "keywords": [
-        "Gas Chromatography (GC)",
-        "Mass Spectrometry (MS)",
-        "Instrument Maintenance",
-        "Data Acquisition"
-      ]
+      "keywords": ["Gas Chromatography (GC)", "Mass Spectrometry (MS)", "Instrument Maintenance", "Data Acquisition"]
     },
     {
       "name": "Quality & Compliance",
       "level": "Proficient",
       "icon": "fa-solid fa-clipboard-check",
-      "keywords": [
-        "Root Cause Analysis",
-        "Regulatory Compliance",
-        "Corrective Actions",
-        "Data Integrity",
-        "Quality Assurance"
-      ]
+      "keywords": ["Root Cause Analysis", "Regulatory Compliance", "Corrective Actions", "Data Integrity", "Quality Assurance"]
     },
     {
       "name": "Laboratory & Workflow Management",
@@ -191,42 +181,22 @@
     {
       "name": "Data Science and Analytics",
       "icon": "fa-solid fa-chart-line",
-      "keywords": [
-        "Data Mining",
-        "Data Scraping",
-        "Data Visualization",
-        "Predictive Analytics"
-      ]
+      "keywords": ["Data Mining", "Data Scraping", "Data Visualization", "Predictive Analytics"]
     },
     {
       "name": "Machine Learning and AI",
       "icon": "fa-solid fa-robot",
-      "keywords": [
-        "Supervised Learning",
-        "Unsupervised Learning",
-        "Neural Networks",
-        "Natural Language Processing"
-      ]
+      "keywords": ["Supervised Learning", "Unsupervised Learning", "Neural Networks", "Natural Language Processing"]
     },
     {
       "name": "Big Data Technologies",
       "icon": "fa-solid fa-database",
-      "keywords": [
-        "Data Lakes",
-        "Database Sharding",
-        "Data Warehousing",
-        "Cloud Computing"
-      ]
+      "keywords": ["Data Lakes", "Database Sharding", "Data Warehousing", "Cloud Computing"]
     },
     {
       "name": "Chemometrics",
       "icon": "fa-solid fa-flask",
-      "keywords": [
-        "Multivariate Analysis",
-        "Cluster Analysis",
-        "Principal Component Analysis (PCA)",
-        "Design of Experiments (DoE)"
-      ]
+      "keywords": ["Multivariate Analysis", "Cluster Analysis", "Principal Component Analysis (PCA)", "Design of Experiments (DoE)"]
     }
   ],
   "projects": [

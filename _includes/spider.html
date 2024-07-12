@@ -1,7 +1,7 @@
 <canvas id="spiders"></canvas>
 <script>
-  const canvas = document.getElementById('spiders');
-  const ctx = canvas.getContext('2d');
+  const canvas = document.getElementById("spiders");
+  const ctx = canvas.getContext("2d");
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
 
@@ -22,7 +22,7 @@
         vx: (Math.random() - 0.5) * 1,
         vy: (Math.random() - 0.5) * 1,
         speed: 0.5 + Math.random() * 1,
-        circle: new Circle({ x: px, y: py }, 1 + Math.random() * 2, 'rgba(118,118,118,0.9)')
+        circle: new Circle({ x: px, y: py }, 1 + Math.random() * 2, "rgba(118,118,118,0.9)"),
       };
       points.push(p);
     }
@@ -33,7 +33,7 @@
     this.radius = rad;
     this.color = color;
 
-    this.draw = function(opacity) {
+    this.draw = function (opacity) {
       ctx.beginPath();
       ctx.arc(this.pos.x, this.pos.y, this.radius, 0, 2 * Math.PI, false);
       ctx.fillStyle = `rgba(118,118,118,${opacity})`;
