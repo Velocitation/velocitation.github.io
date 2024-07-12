@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+
 group :jekyll_plugins do
     gem 'classifier-reborn'
     gem 'jekyll'
@@ -20,7 +21,9 @@ group :jekyll_plugins do
     gem 'mini_racer'
     gem 'unicode_utils'
     gem 'webrick'
+    gem 'observer', require: false
 end
+
 group :other_plugins do
     gem 'css_parser'
     gem 'feedjira'
