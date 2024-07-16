@@ -16,7 +16,7 @@ This project involved the co-development of a standalone report generation softw
 
 1. **Multivendor Data Integration**: Capable of reading and processing raw integrated data from various chromatographic data software, ensuring compatibility across different analytical platforms.
 2. **Multi-Analyte Method Support**: Handled data from 9 different multi-analyte methods, providing a comprehensive solution for a wide range of diagnostic tests.
-3. **Internal Standard Evaluation**: Implemented sophisticated algorithms to evaluate internal standards, automatically detecting and flagging anomalies in the data.
+3. **Analyte Concentration Evaluation**: Implemented advanced algorithms to evaluate and flag results outside the Analytical Measurement Range (AMR). Additionally, these algorithms were applied to internal standards to automatically detect and flag anomalies in the data.
 4. **Automated Quality Control**: Included robust flagging capabilities for run failures, such as detecting possible carryover by comparing reagent blank area counts to the lowest calibration standard.
 5. **PDF Report Generation**: Automatically generated detailed PDF reports, presenting complex analytical data in a clear, standardized format, allowing for easy storage and retrieval of digital records for audits.
 6. **Data Interpretation Assistance**: Streamlined the data interpretation process by highlighting key metrics and flagging results that required attention.

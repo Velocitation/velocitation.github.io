@@ -76,6 +76,17 @@
       "endDate": "2013-05-01",
       "score": "",
       "courses": ["Professional Chemist with Honors concentration, ACS certified", "Minor in Mathematical Sciences"]
+    },
+    {
+      "institution": "Virginia Commonwealth University",
+      "location": "Richmond, VA",
+      "url": "https://www.vcu.edu/",
+      "area": "Data Science",
+      "studyType": "Master's in Decision Analytics",
+      "startDate": "",
+      "endDate": "2024-12-01",
+      "score": "",
+      "courses": ["Python and R scripting languages", "JMP, Oracle, Tableau, SAS softwares", "Data Scraping, NLP, Statistics, AI/ML principles"]
     }
   ],
   "volunteer": [

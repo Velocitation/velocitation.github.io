@@ -4,14 +4,29 @@
   const ctx = canvas.getContext("2d");
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
-
   const points = [];
   const maxDistance = 200;
   const fadeDistance = 100;
+  const numPoints = 50;
+
+  // Color settings
+  const currentColor = "192, 192, 192"; // Silver
+
+  function Circle(pos, rad, color) {
+    this.pos = pos;
+    this.radius = rad;
+    this.color = color;
+    this.draw = function (opacity) {
+      ctx.beginPath();
+      ctx.arc(this.pos.x, this.pos.y, this.radius, 0, 2 * Math.PI, false);
+      ctx.fillStyle = `rgba(${currentColor},${opacity})`;
+      ctx.fill();
+    };
+  }
 
   function createPoints() {
     points.length = 0; // Clear points array before adding new points
-    for (let i = 0; i < 50; i++) {
+    for (let i = 0; i < numPoints; i++) {
       const px = Math.random() * canvas.width;
       const py = Math.random() * canvas.height;
       const p = {
@@ -19,42 +34,27 @@
         y: py,
         originX: px,
         originY: py,
-        vx: (Math.random() - 0.5) * 1,
-        vy: (Math.random() - 0.5) * 1,
-        speed: 0.5 + Math.random() * 1,
-        circle: new Circle({ x: px, y: py }, 1 + Math.random() * 2, "rgba(118,118,118,0.9)"),
+        vx: (Math.random() - 0.5) * 0.75,
+        vy: (Math.random() - 0.5) * 0.75,
+        speed: 0.5 + Math.random() * 0.5,
+        circle: new Circle({ x: px, y: py }, 1 + Math.random() * 2, `rgba(${currentColor},0.9)`),
       };
       points.push(p);
     }
   }
 
-  function Circle(pos, rad, color) {
-    this.pos = pos;
-    this.radius = rad;
-    this.color = color;
-
-    this.draw = function (opacity) {
-      ctx.beginPath();
-      ctx.arc(this.pos.x, this.pos.y, this.radius, 0, 2 * Math.PI, false);
-      ctx.fillStyle = `rgba(118,118,118,${opacity})`;
-      ctx.fill();
-    };
-  }
-
   function movePoint(p) {
     p.x += p.vx * p.speed;
     p.y += p.vy * p.speed;
-
     // Ensure points stay within the max distance from their origin
     if (getDistance(p, { x: p.originX, y: p.originY }) > maxDistance) {
       p.vx = -p.vx;
       p.vy = -p.vy;
     }
-
     // Random movement change
     if (Math.random() < 0.01) {
-      p.vx = (Math.random() - 0.5) * 1;
-      p.vy = (Math.random() - 0.5) * 1;
+      p.vx = (Math.random() - 0.5) * 0.75;
+      p.vy = (Math.random() - 0.5) * 0.75;
     }
   }
 
@@ -71,11 +71,11 @@
       for (let j = i + 1; j < points.length; j++) {
         const dist = getDistance(points[i], points[j]);
         if (dist < maxDistance) {
-          const opacity = Math.min(getOpacity(points[i].x, points[i].y), getOpacity(points[j].x, points[j].y)) * (1 - dist / maxDistance); // Fade based on distance and edge proximity
+          const opacity = Math.min(getOpacity(points[i].x, points[i].y), getOpacity(points[j].x, points[j].y)) * (1 - dist / maxDistance);
           ctx.beginPath();
           ctx.moveTo(points[i].x, points[i].y);
           ctx.lineTo(points[j].x, points[j].y);
-          ctx.strokeStyle = `rgba(118,118,118,${opacity})`;
+          ctx.strokeStyle = `rgba(${currentColor},${opacity})`;
           ctx.stroke();
         }
       }
@@ -107,4 +107,11 @@
 
   createPoints();
   animate();
+
+  // Handle window resize
+  window.addEventListener("resize", () => {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    createPoints();
+  });
 </script>
