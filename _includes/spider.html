@@ -8,8 +8,6 @@
   const maxDistance = 200;
   const fadeDistance = 100;
   const numPoints = 50;
-
-  // Color settings
   const currentColor = "192, 192, 192"; // Silver
 
   function Circle(pos, rad, color) {
@@ -27,17 +25,17 @@
   function createPoints() {
     points.length = 0; // Clear points array before adding new points
     for (let i = 0; i < numPoints; i++) {
-      const px = Math.random() * canvas.width;
-      const py = Math.random() * canvas.height;
+      const px = Math.random();
+      const py = Math.random();
       const p = {
-        x: px,
-        y: py,
+        x: px * canvas.width,
+        y: py * canvas.height,
         originX: px,
         originY: py,
         vx: (Math.random() - 0.5) * 0.75,
         vy: (Math.random() - 0.5) * 0.75,
         speed: 0.5 + Math.random() * 0.5,
-        circle: new Circle({ x: px, y: py }, 1 + Math.random() * 2, `rgba(${currentColor},0.9)`),
+        circle: new Circle({ x: px * canvas.width, y: py * canvas.height }, 1 + Math.random() * 2, `rgba(${currentColor},0.9)`),
       };
       points.push(p);
     }
@@ -47,7 +45,9 @@
     p.x += p.vx * p.speed;
     p.y += p.vy * p.speed;
     // Ensure points stay within the max distance from their origin
-    if (getDistance(p, { x: p.originX, y: p.originY }) > maxDistance) {
+    const originX = p.originX * canvas.width;
+    const originY = p.originY * canvas.height;
+    if (getDistance(p, { x: originX, y: originY }) > maxDistance) {
       p.vx = -p.vx;
       p.vy = -p.vy;
     }
@@ -112,6 +112,9 @@
   window.addEventListener("resize", () => {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
-    createPoints();
+    for (let i = 0; i < points.length; i++) {
+      points[i].x = points[i].originX * canvas.width;
+      points[i].y = points[i].originY * canvas.height;
+    }
   });
 </script>
