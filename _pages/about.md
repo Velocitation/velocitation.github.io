@@ -2,7 +2,7 @@
 layout: about
 title: about
 permalink: /
-subtitle: Innovating at the intersection of Science and Data
+subtitle: Innovating at the Intersection of Science and Data
 
 profile:
   align: right
@@ -19,7 +19,7 @@ social: true # includes social icons at the bottom of the page
 {% include spider.html %}
 
 <hr>
-Hello! I'm a Senior Scientist with a unique blend of expertise in analytical chemistry and data science, currently pursuing a <a href='https://bulletin.vcu.edu/graduate/school-business/decision-analytics-programs/decision-analytics-mda/#text'>Master's in Decision Analytics</a> at <a href='https://www.vcu.edu/'>VCU</a>. My journey has taken me from bench science to data-driven decision making, where I've discovered the power of transforming scientific data into actionable insights.
+Hello! I'm a Senior Scientist with a unique blend of expertise in analytical chemistry and data science, holding a <a href='https://bulletin.vcu.edu/graduate/school-business/decision-analytics-programs/decision-analytics-mda/#text'>Master in Decision Analytics</a> degree from <a href='https://www.vcu.edu/'>VCU</a>. My journey has taken me from bench science to data-driven decision making, where I've discovered the power of transforming scientific data into actionable insights.
 
 With a strong foundation in chemistry and growing expertise in data science, I bridge these fields to drive innovation in scientific research and beyond. My focus lies in developing efficient data reporting infrastructures, applying machine learning to analytical problems, and creating automated solutions that enhance accuracy and productivity.
 

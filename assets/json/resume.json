@@ -6,7 +6,7 @@
     "email": "kylewpfeiffer@gmail.com",
     "phone": "",
     "url": "https://kylepfeiffer.com/",
-    "summary": "A chemist with a passion for data, currently pursuing a Master's in Decision Analytics to further my career in data science.",
+    "summary": "Senior Scientist II with a background in chemistry and data science, specializing in data analysis, programming, and chromatography techniques. Experienced in laboratory management, quality control, and regulatory compliance. Skilled in Python, R, and SQL, with a Master of Decision Analytics from Virginia Commonwealth University.",
     "location": {
       "address": "",
       "postalCode": "",
@@ -72,7 +72,7 @@
       "url": "https://www.vcu.edu/",
       "area": "Chemistry",
       "studyType": "Bachelor of Science",
-      "startDate": "",
+      "startDate": "2010-06-01",
       "endDate": "2013-05-01",
       "score": "",
       "courses": ["Professional Chemist with Honors concentration, ACS certified", "Minor in Mathematical Sciences"]
@@ -82,10 +82,10 @@
       "location": "Richmond, VA",
       "url": "https://www.vcu.edu/",
       "area": "Data Science",
-      "studyType": "Master's in Decision Analytics",
-      "startDate": "",
+      "studyType": "Master of Decision Analytics",
+      "startDate": "2023-08-01",
       "endDate": "2024-12-01",
-      "score": "",
+      "score": "4.0",
       "courses": ["Python and R scripting languages", "JMP, Oracle, Tableau, SAS softwares", "Data Scraping, NLP, Statistics, AI/ML principles"]
     }
   ],
