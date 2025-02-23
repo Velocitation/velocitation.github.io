@@ -1,12 +1,12 @@
 {
   "basics": {
     "name": "Kyle Pfeiffer",
-    "label": "Senior Scientist II",
+    "label": "Principal Scientist I",
     "image": "",
     "email": "kylewpfeiffer@gmail.com",
     "phone": "",
     "url": "https://kylepfeiffer.com/",
-    "summary": "Senior Scientist II with a background in chemistry and data science, specializing in data analysis, programming, and chromatography techniques. Experienced in laboratory management, quality control, and regulatory compliance. Skilled in Python, R, and SQL, with a Master of Decision Analytics from Virginia Commonwealth University.",
+    "summary": "Principal Scientist with a background in chemistry and data science, specializing in data analysis, programming, and chromatography techniques. Experienced in laboratory management, quality control, and regulatory compliance. Skilled in Python, R, and SQL, with a Master of Decision Analytics from Virginia Commonwealth University.",
     "location": {
       "address": "",
       "postalCode": "",
@@ -25,11 +25,11 @@
   "work": [
     {
       "name": "Altria Group, Inc.",
-      "position": "Senior Scientist II",
+      "position": "Principal Scientist I",
       "url": "https://altria.com",
       "startDate": "2023-01-01",
       "endDate": "",
-      "summary": "Coordinate data workflows and lead quality reviews for FDA regulatory submissions, manage and analyze data for key partners, and ensure compliance with FDA reporting requirements.",
+      "summary": "Spearhead development of automated systems and cross-platform infrastructure for Analytical Sciences, ensuring regulatory alignment and high-integrity data solutions.",
       "highlights": ["Data workflow management", "Tool development innovation", "Analytical data oversight", "Quality review leadership"]
     },
     {
