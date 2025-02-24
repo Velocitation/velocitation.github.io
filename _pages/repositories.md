@@ -2,6 +2,7 @@
 layout: page
 permalink: /repositories/
 title: repositories
+subtitle: Repositories
 description: Feel free to explore my recent projects and reach out for collaborations!
 nav: true
 nav_order: 3

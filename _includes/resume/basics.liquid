@@ -1,28 +1,61 @@
-<table class="table table-cv table-sm table-borderless table-responsive table-cv-map">
-  {% assign skip_basics = 'image,profiles,location' | split: ',' %}
-  {% for content in data[1] %}
-    {%
-      if (content[1] == "") or (skip_basics contains
-      content[0])
-    %}
-      {% continue %}
-    {% endif %}
-
-    <tr>
-      <td class="p-1 pr-2 font-weight-bold">
-        <b>{{ content[0] | capitalize }}</b>
-      </td>
-      <td class="p-1 pl-2 font-weight-light text">
-        {% if content[0] == 'url' %}
-          <a href="{{ content[1] }}" target="_blank" rel="noopener noreferrer">{{ content[1] }}</a>
-        {% elsif content[0] == 'email' %}
-          <a href="mailto:{{ content[1] }}" target="_blank">{{ content[1] }}</a>
-        {% elsif content[0] == 'phone' %}
-          <a href="tel:{{ content[1] }}">{{ content[1] }}</a>
-        {% else %}
-          {{ content[1] }}
-        {% endif %}
-      </td>
-    </tr>
-  {% endfor %}
-</table>
+{% assign skip_basics = 'image,profiles,location' | split: ',' %}
+{% if data[1].image and data[1].image != '' %}
+  {% assign resume_image_path = data[1].image | prepend: 'assets/img/' | relative_url %}
+  {% assign resume_image_class = 'img-fluid z-depth-1 rounded' %}
+  {% capture sizes %}(min-width: {{ site.max_width }}) {{ site.max_width | minus: 30 | times: 0.3 }}px, (min-width: 576px) 30vw, 95vw{% endcapture %}
+  {% assign alt_text = data[1].name %}
+  <div class="row">
+    <div class="col-md-8">
+      <table class="table table-cv table-sm table-borderless table-responsive table-cv-map">
+        {% for content in data[1] %}
+          {% if (content[1] == "") or (skip_basics contains content[0]) %}
+            {% continue %}
+          {% endif %}
+          <tr>
+            <td class="p-1 pr-2 font-weight-bold">
+              <b>{{ content[0] | capitalize }}</b>
+            </td>
+            <td class="p-1 pl-2 font-weight-light text">
+              {% if content[0] == 'url' %}
+                <a href="{{ content[1] }}" target="_blank" rel="noopener noreferrer">{{ content[1] }}</a>
+              {% elsif content[0] == 'email' %}
+                <a href="mailto:{{ content[1] }}" target="_blank">{{ content[1] }}</a>
+              {% elsif content[0] == 'phone' %}
+                <a href="tel:{{ content[1] }}">{{ content[1] }}</a>
+              {% else %}
+                {{ content[1] }}
+              {% endif %}
+            </td>
+          </tr>
+        {% endfor %}
+      </table>
+    </div>
+    <div class="col-md-4 align-self-start text-right">
+      {% include figure.liquid loading="eager" path=resume_image_path class=resume_image_class sizes=sizes alt=alt_text cache_bust="true" %}
+    </div>
+  </div>
+{% else %}
+  <table class="table table-cv table-sm table-borderless table-responsive table-cv-map">
+    {% for content in data[1] %}
+      {% if (content[1] == "") or (skip_basics contains content[0]) %}
+        {% continue %}
+      {% endif %}
+      <tr>
+        <td class="p-1 pr-2 font-weight-bold">
+          <b>{{ content[0] | capitalize }}</b>
+        </td>
+        <td class="p-1 pl-2 font-weight-light text">
+          {% if content[0] == 'url' %}
+            <a href="{{ content[1] }}" target="_blank" rel="noopener noreferrer">{{ content[1] }}</a>
+          {% elsif content[0] == 'email' %}
+            <a href="mailto:{{ content[1] }}" target="_blank">{{ content[1] }}</a>
+          {% elsif content[0] == 'phone' %}
+            <a href="tel:{{ content[1] }}">{{ content[1] }}</a>
+          {% else %}
+            {{ content[1] }}
+          {% endif %}
+        </td>
+      </tr>
+    {% endfor %}
+  </table>
+{% endif %}
